@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fundamental of class</title>
+</head>
+<body>
+  <script type="text/javascript">
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      sayHello() {
+        console.log(`Hello, I'm ${this.name}, and I'm ${this.age} years old.`);
+      }
+    }
+
+    class Student extends Person {
+
+    }
+
+
+
+    const p1 = new Person('Alice', 30);
+    const p2 = new Person('Bob', 25);
+    
+    
+    p1.sayHello(); // Output: Hello, I'm Alice, and I'm 30 years old.
+    p2.sayHello(); // Output: Hello, I'm Bob, and I'm 25 years old.
+    const s1 = new Student('Charlie', 20);
+    s1.sayHello(); // Output: Hello, I'm Charlie, and I'm 20 years old.
+  
+  </script>
+  
+</body>
+</html>
