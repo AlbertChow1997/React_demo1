@@ -19,15 +19,19 @@
     class Weather extends React.Component{
       constructor(props){
         super(props)
-        this.state = {isHot:true}
+        this.state = {isHot:true, wind:'light'}
+        this.changeWeather = this.changeWeather.bind(this)
       }
-
+      //render will be called at the first time when the component is mounted, and will be called again when the state is updated
+      //the total times is 1 + the times of state update
       render() {
-        console.log(this)
-        return <h1 onClick={demo}>Today's weather is {this.state.isHot ? 'hot' : 'cool'}</h1>
+        const {isHot, wind} = this.state
+        return <h1 onClick={this.changeWeather}>Today's weather is {this.state.isHot ? 'hot' : 'cool'}, {wind}</h1>
       }
 
-      ChangeWeather(){
+      //changeWeather is a method to update the state, and it will be called when the h1 is clicked
+      changeWeather(){
+        const {isHot} = this.state.isHot
         this.setState({isHot:!this.state.isHot})
       }
     }

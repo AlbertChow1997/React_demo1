@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    class Person{
+      constructor(name, age){
+        this.name = name
+        this.age = age
+      }
+      study(){
+        console.log(this)
+      }
+    }
+
+    const p1 = new Person('Alice', 30)
+    p1.study() //call study method by instance p1
+    const x = p1.study //assign the method to a variable
+    x() //call the method by variable x, this will cause error because this is undefined
+  </script>
+  
+</body>
+</html>
