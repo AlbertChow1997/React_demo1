@@ -6,7 +6,9 @@
 </head>
 <body>
   <!-- prepare a container -->
-  <div id="test" ></div>
+  <div id="test1" ></div>
+  <div id="test2" ></div>
+  <div id="test3" ></div>
 
   <!-- import react core library -->
   <script type="text/javascript" src = "../js/react.development.js"></script>
@@ -16,9 +18,11 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // Props are values passed from a parent when a component is used.
     class Person extends React.Component{
 
       render(){
+        // Destructure props to make the JSX easier to read.
         const {name, gender, age} = this.props
         return (
           <ul>
@@ -29,7 +33,13 @@
         )
       }
     }
+    // These first two renders pass props one by one.
     ReactDOM.render(<Person name="Tom" gender="male" age="20"/>, document.getElementById('test1'))
+    ReactDOM.render(<Person name="Lily" gender="female" age="18"/>, document.getElementById('test2'))
+    const p = {name:'Jack', gender:'male', age:30}
+
+    // Spread syntax copies object fields into individual props.
+    ReactDOM.render(<Person {...p}/>, document.getElementById('test3'))
     
 
 

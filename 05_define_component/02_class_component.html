@@ -16,7 +16,9 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // A class component must inherit from React.Component.
     class MyComponent extends React.Component{
+      // React calls render() to know what UI this component should display.
       render(){
         return <h2>I'm a class component</h2>
       }

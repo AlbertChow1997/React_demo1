@@ -6,6 +6,7 @@
 </head>
 <body>
   <script type="text/javascript">
+    // Class methods depend on how they are called to decide what "this" is.
     class Person{
       constructor(name, age){
         this.name = name
@@ -17,9 +18,9 @@
     }
 
     const p1 = new Person('Alice', 30)
-    p1.study() //call study method by instance p1
-    const x = p1.study //assign the method to a variable
-    x() //call the method by variable x, this will cause error because this is undefined
+    p1.study() // When called through p1, "this" points to the instance.
+    const x = p1.study // Saving the method alone removes its object context.
+    x() // In strict mode, calling it directly makes "this" become undefined.
   </script>
   
 </body>

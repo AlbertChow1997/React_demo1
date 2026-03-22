@@ -17,12 +17,14 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // Array data can be turned into repeated JSX with map().
     const data = ['Angular', 'Vue', 'React'];
     const VDOM = (
       <div>
         <h1>Front-end Framework List</h1>
         <ul>
           {
+            // Each rendered list item needs a unique key for React's diffing.
             data.map((item, index) => {
               return <li key={index}>{item}</li>
             })
@@ -31,7 +33,7 @@
         </ul>
       </div>    
     )
-    // render the vdom to real dom
+    // Show the generated list in the container.
     ReactDOM.render(VDOM, document.getElementById("test"));
   </script>
   

@@ -23,18 +23,19 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+  // Values can be injected into JSX with {}.
   const myId = "atguigu";
   const myData = "Hello, rEaCt";
 
 
-    // create a vdom with jsx syntax
+    // JSX uses className for CSS classes and style receives a JS object.
     const VDOM = (
       <h2 className="title" id={myId}>
         <span style={{color: 'red', fontSize: '20px'}}>{myData}</span>
       </h2>
 
     )
-    // render the vdom to real dom
+    // Render the JSX result into the page.
     ReactDOM.render(VDOM, document.getElementById("test"));
   </script>
   

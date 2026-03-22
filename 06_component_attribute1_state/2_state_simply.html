@@ -16,19 +16,23 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // Public class fields let us define state without writing a constructor.
     class Weather extends React.Component{
 
       state = {isHot:true, wind:'light'}
       render() {
         const {isHot, wind} = this.state
+        // Arrow-function handlers keep the correct "this" automatically.
         return <h1 onClick={this.changeWeather}>Today's weather is {this.state.isHot ? 'hot' : 'cool'}, {wind}</h1>
       }
 
       changeWeather = ()=>{
+        // setState tells React to update the state and render again.
         const isHot = this.state.isHot
         this.setState({isHot:!isHot})
       }
     }
+    // Mount the component into the page.
     ReactDOM.render(<Weather/>, document.getElementById('test'))
 
 

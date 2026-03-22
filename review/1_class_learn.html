@@ -6,20 +6,24 @@
 </head>
 <body>
   <script type="text/javascript">
+    // Person is a base class that defines shared data and behavior.
     class Person {
       constructor(name, age) {
         this.name = name;
         this.age = age;
       }
+      // Instance methods are shared through the prototype.
       sayHello() {
         console.log(`Hello, I'm ${this.name}, and I'm ${this.age} years old.`);
       }
     }
 
+    // Student inherits Person's constructor behavior and methods.
     class Student extends Person {
 
     }
 
+    // Car is another class example with its own properties.
     class Car{
       constructor(brand, model){
         this.name = name
@@ -34,12 +38,14 @@
 
 
 
+    // Each "new" call creates a separate instance.
     const p1 = new Person('Alice', 30);
     const p2 = new Person('Bob', 25);
     
     
     p1.sayHello(); // Output: Hello, I'm Alice, and I'm 30 years old.
     p2.sayHello(); // Output: Hello, I'm Bob, and I'm 25 years old.
+    // Student can reuse Person's method because of inheritance.
     const s1 = new Student('Charlie', 20);
     s1.sayHello(); // Output: Hello, I'm Charlie, and I'm 20 years old.
   

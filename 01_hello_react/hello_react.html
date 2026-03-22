@@ -18,9 +18,10 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // JSX creates a React element that describes the UI we want to show.
     const VDOM = <h1>Hello React</h1>;/* No "" because it's jsx not string*/
 
-    // render the vdom to real dom
+    // Render the virtual DOM into the real DOM container on the page.
     ReactDOM.render(VDOM, document.getElementById("test"));
   </script>
   

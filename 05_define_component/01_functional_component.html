@@ -16,10 +16,11 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // A functional component is just a function that returns JSX.
     function MyComponent(){
       return <h2>I'm a functional component</h2>
     }
-    // render the vdom to real dom
+    // Custom components are used as JSX tags.
     ReactDOM.render(<MyComponent/>, document.getElementById("test"));
     
   </script>

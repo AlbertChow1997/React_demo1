@@ -16,16 +16,20 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // State stores data that belongs to the component and can change over time.
     class Weather extends React.Component{
       constructor(props){
         super(props)
+        // The initial component state is defined once in the constructor.
         this.state = {isHot:true, wind:'light'}
+        // Bind the event handler so "this" points to the component instance.
         this.changeWeather = this.changeWeather.bind(this)
       }
       //render will be called at the first time when the component is mounted, and will be called again when the state is updated
       //the total times is 1 + the times of state update
       render() {
         const {isHot, wind} = this.state
+        // Clicking the title triggers a state change and a re-render.
         return <h1 onClick={this.changeWeather}>Today's weather is {this.state.isHot ? 'hot' : 'cool'}, {wind}</h1>
       }
 
@@ -35,6 +39,7 @@
         this.setState({isHot:!this.state.isHot})
       }
     }
+    // Render the Weather component once to start the example.
     ReactDOM.render(<Weather/>, document.getElementById('test'))
 
 

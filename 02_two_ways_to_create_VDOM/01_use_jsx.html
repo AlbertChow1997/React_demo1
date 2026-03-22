@@ -18,12 +18,13 @@
   <script type="text/javascript" src = "../js/babel.min.js"></script>
 
   <script type="text/babel">
+    // This example creates virtual DOM by writing JSX directly.
     const VDOM = (
       <h1>
         <span>Hello React</span>
       </h1>/* No "" because it's jsx not string*/
     )
-    // render the vdom to real dom
+    // ReactDOM takes the React element and mounts it into the page.
     ReactDOM.render(VDOM, document.getElementById("test"));
   </script>
   

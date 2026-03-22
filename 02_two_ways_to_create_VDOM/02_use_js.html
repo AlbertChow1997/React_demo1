@@ -17,8 +17,9 @@
   
 
   <script type="text/javascript">
+    // React.createElement is what JSX is compiled into behind the scenes.
     const VDOM = React.createElement("h1", {id:'title'}, "Hello React");
-    // render the vdom to real dom
+    // Mount the generated React element into the container.
     ReactDOM.render(VDOM, document.getElementById("test"));
   </script>
   
