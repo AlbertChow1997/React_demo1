@@ -26,6 +26,8 @@
         return <h1 onClick={this.changeWeather}>Today's weather is {this.state.isHot ? 'hot' : 'cool'}, {wind}</h1>
       }
 
+      // Using an arrow function here means "this" is always the component instance.
+      // Self-defining method should use arrow function, otherwise "this" will be undefined when the method is called as an event handler.
       changeWeather = ()=>{
         // setState tells React to update the state and render again.
         const isHot = this.state.isHot
