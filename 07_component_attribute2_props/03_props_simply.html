@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>props2</title>
+</head>
+<body>
+  <!-- prepare a container -->
+  <div id="test1" ></div>
+  <div id="test2" ></div>
+  <div id="test3" ></div>
+
+  <!-- import react core library -->
+  <script type="text/javascript" src = "../js/react.development.js"></script>
+  <!-- import dom library -->
+  <script type="text/javascript" src = "../js/react-dom.development.js"></script>
+  <!-- import babel to translate jsx to js -->
+  <script type="text/javascript" src = "../js/babel.min.js"></script>
+  <!-- import prop-types-->
+  <script type="text/javascript" src = "../js/prop-types.js"></script>
+
+  <script type="text/babel">
+    // Props are values passed from a parent when a component is used.
+    class Person extends React.Component{
+			constructor(props){
+				// If you want to use "this.props" in the constructor, you need to pass "props" to "super()". Otherwise, "this.props" will be undefined in the constructor.
+				super(props)
+				console.log('constructors',props)
+			}
+
+      render(){
+        // Destructure props to make the JSX easier to read.
+        const {name, gender, age} = this.props
+
+				
+
+        return (
+          <ul>
+            <li>Name: {name}</li>
+            <li>Gender: {gender}</li>
+            <li>Age: {age}</li>
+          </ul>
+        )
+      }
+			static propTypes = {
+      	name:PropTypes.string.isRequired,
+				gender:PropTypes.string,
+				age:PropTypes.number,
+				speak:PropTypes.func
+    	}
+
+			// Default props are used when the parent does not provide a value.
+			static defaultProps = {
+				gender:'unknown',
+				age:18
+			}
+    }
+
+
+    // These first two renders pass props one by one.
+    ReactDOM.render(<Person name="Tom"/>, document.getElementById('test1'))
+    
+
+  </script>
+  
+</body>
+</html>
