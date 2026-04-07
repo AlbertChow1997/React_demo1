@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>props1_basic</title>
+  <title>props2</title>
 </head>
 <body>
   <!-- prepare a container -->
@@ -26,26 +26,45 @@
       render(){
         // Destructure props to make the JSX easier to read.
         const {name, gender, age} = this.props
+
+				// Props are read-only, so we cannot modify them. We can only use them to calculate the output.
+
         return (
           <ul>
             <li>Name: {name}</li>
             <li>Gender: {gender}</li>
-            <li>Age: {age+1}</li>
+            <li>Age: {age}</li>
           </ul>
         )
       }
+			static propTypes = {
+      	name:PropTypes.string.isRequired,
+				gender:PropTypes.string,
+				age:PropTypes.number,
+				speak:PropTypes.func
+    	}
+
+			// Default props are used when the parent does not provide a value.
+			static defaultProps = {
+				gender:'unknown',
+				age:18
+			}
     }
     
 
+		
 
     // These first two renders pass props one by one.
-    ReactDOM.render(<Person name="Tom" gender="male" age={20}/>, document.getElementById('test1'))
-    ReactDOM.render(<Person name="Lily" gender="female" age={18}/>, document.getElementById('test2'))
+    ReactDOM.render(<Person name="Tom" speak={speak}/>, document.getElementById('test1'))
+    ReactDOM.render(<Person name="Lily" gender="female" age={19}/>, document.getElementById('test2'))
     const p = {name:'Jack', gender:'male', age:30}
 
     // Spread syntax copies object fields into individual props.
     ReactDOM.render(<Person {...p}/>, document.getElementById('test3'))
     
+		function speak(){
+			alert('Hello')
+		}
 
 
   </script>
